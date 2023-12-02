@@ -1,11 +1,11 @@
-from re import search
+from regex import findall
 
-data = open("data.txt")
+input = open("01_input.txt")
 pattern = "[0-9]"
 
 sum = 0
-for l in data:
-	nr = int(search(pattern, l).group(0) + search(pattern, l[::-1]).group(0))
-	sum += nr
+for line in input:
+    nr = int(findall(pattern, line)[0] + findall(pattern, line)[-1])
+    sum += nr
 
 print(sum)
