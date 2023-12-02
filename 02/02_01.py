@@ -1,4 +1,4 @@
-from re import findall
+from re import search
 
 input = open("input.txt")
 redPattern = r"[0-9]+(?= red)"
@@ -18,28 +18,28 @@ for line in input:
 	impossible = False
 	games = line.split(": ")[1].split("; ")
 	for game in games:
-		red = findall(redPattern, game)
-		green = findall(greenPattern, game)
-		blue = findall(bluePattern, game)
-		if len(red) > 0:
+		red = search(redPattern, game)
+		if red:
 			if int(red[0]) > maxColors["red"]:
 				impossible = True
 				break
-		if len(green) > 0:
+
+		green = search(greenPattern, game)
+		if green:
 			if int(green[0]) > maxColors["green"]:
 				impossible = True
 				break
-		if len(blue) > 0:
+
+		blue = search(bluePattern, game)
+		if blue:
 			if int(blue[0]) > maxColors["blue"]:
 				impossible = True
 				break
 	if impossible:
 		continue
 	sum += id
+
 print(sum)
 
 # INCORRECT ANSWERS:
 # 	4106 (too high)
-
-# CORRECT ANSWER:
-# 2600
