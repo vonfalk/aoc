@@ -9,7 +9,6 @@ id = 0
 sum = 0
 for line in input:
 	id += 1
-	impossible = False
 	games = line.split(": ")[1].split("; ")
 	maxRed = maxGreen = maxBlue = 0
 	for game in games:
