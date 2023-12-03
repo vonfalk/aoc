@@ -1,10 +1,18 @@
-# from re import findall
+from re import finditer
 
-numberPattern = "[0-9]+"
-charPattern = "[^.0-9]"
+numberPattern = r"[0-9]+"
+charPattern = r"[^.0-9]+"
 
-input = open("03_input.txt")
-maxLines = len(input.readline())
+input = open("03_input.txt").readlines()
+maxLines = len(input)
 
-for i in range(1, maxLines):
+
+def isPartNumber():
     pass
+
+
+for i in range(0, maxLines):
+    line = input[i]
+    numberMatches = finditer(numberPattern, line)
+    for match in numberMatches:
+        print(match)
