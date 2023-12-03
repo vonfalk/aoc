@@ -9,8 +9,8 @@ sum = 0
 
 
 def isSurrounding(pos, span):
-    return (span[0] - 1 <= pos and span[0] + 1 >= pos) or (
-        span[1] - 1 <= pos and span[1] >= pos
+    return (span[0] >= pos - 1 and span[0] <= pos + 1) or (
+        span[1] - 1 >= pos - 1 and span[1] - 1 <= pos + 1
     )
 
 
