@@ -1,6 +1,6 @@
 from re import search
 
-input = open("input.txt")
+input = open("02_input.txt")
 redPattern = r"[0-9]+(?= red)"
 greenPattern = r"[0-9]+(?= green)"
 bluePattern = r"[0-9]+(?= blue)"

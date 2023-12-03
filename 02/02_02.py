@@ -1,14 +1,12 @@
 from re import search
 
-input = open("input.txt")
+input = open("02_input.txt")
 redPattern = r"[0-9]+(?= red)"
 greenPattern = r"[0-9]+(?= green)"
 bluePattern = r"[0-9]+(?= blue)"
 
-id = 0
 sum = 0
 for line in input:
-    id += 1
     games = line.split(": ")[1].split("; ")
     maxRed = maxGreen = maxBlue = 0
     for game in games:
