@@ -5,20 +5,15 @@ numberPattern = "[0-9]+"
 
 maps = [{}, {}, {}, {}, {}, {}, {}]
 map_mode = -1
-seeds = findall(numberPattern, input[0])
-
-
-def get_dest(mapping, index):
-    for nr in mapping:
-        if index >= nr and index <= nr + mapping[nr][1]:
-            return index - nr + mapping[nr][0]
-    return index
 
 
 def get_final_dest(maps, index):
     dest = index
     for i in range(0, 7):
-        dest = get_dest(maps[i], dest)
+        for nr in maps[i]:
+            if dest >= nr and dest <= nr + maps[i][nr][1]:
+                dest = dest - nr + maps[i][nr][0]
+                break
     return dest
 
 
@@ -33,6 +28,7 @@ for line in input[1:]:
             int(numberMatches[2]),
         )
 
+seeds = findall(numberPattern, input[0])
 lowest = int(seeds[0])
 for i in seeds[1:]:
     dest = get_final_dest(maps, int(i))
